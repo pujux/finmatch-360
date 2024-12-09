@@ -1,0 +1,60 @@
+
+/Users/julian/Downloads/project/app/(components)/features-section.tsx
+  4:43  error  'BarChart2' is defined but never used  @typescript-eslint/no-unused-vars
+  4:54  error  'Users' is defined but never used      @typescript-eslint/no-unused-vars
+
+/Users/julian/Downloads/project/app/(components)/header.tsx
+  1:10  error  'Sign' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/julian/Downloads/project/app/dashboard/page.tsx
+  4:18  error  'Filter' is defined but never used         @typescript-eslint/no-unused-vars
+  7:10  error  'Button' is defined but never used         @typescript-eslint/no-unused-vars
+  9:10  error  'Select' is defined but never used         @typescript-eslint/no-unused-vars
+  9:18  error  'SelectContent' is defined but never used  @typescript-eslint/no-unused-vars
+  9:33  error  'SelectItem' is defined but never used     @typescript-eslint/no-unused-vars
+  9:45  error  'SelectTrigger' is defined but never used  @typescript-eslint/no-unused-vars
+  9:60  error  'SelectValue' is defined but never used    @typescript-eslint/no-unused-vars
+
+/Users/julian/Downloads/project/app/layout.tsx
+  5:10  error  'dark' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/julian/Downloads/project/app/onboarding/(components)/onboarding-form.tsx
+  38:7  warning  Unexpected console statement  no-console
+  62:5  warning  Unexpected console statement  no-console
+  67:3  warning  Unexpected console statement  no-console
+
+/Users/julian/Downloads/project/app/onboarding/utils/form.ts
+  2:10  error  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/julian/Downloads/project/app/page.tsx
+  1:10  error  'SignedIn' is defined but never used      @typescript-eslint/no-unused-vars
+  1:20  error  'SignedOut' is defined but never used     @typescript-eslint/no-unused-vars
+  1:31  error  'SignInButton' is defined but never used  @typescript-eslint/no-unused-vars
+  1:45  error  'UserButton' is defined but never used    @typescript-eslint/no-unused-vars
+  2:10  error  'TrendingUp' is defined but never used    @typescript-eslint/no-unused-vars
+  2:22  error  'Users' is defined but never used         @typescript-eslint/no-unused-vars
+  2:29  error  'Shield' is defined but never used        @typescript-eslint/no-unused-vars
+  3:8   error  'Link' is defined but never used          @typescript-eslint/no-unused-vars
+  6:10  error  'Button' is defined but never used        @typescript-eslint/no-unused-vars
+
+/Users/julian/Downloads/project/hooks/use-toast.ts
+   18:7   error  'actionTypes' is assigned a value but only used as a type             @typescript-eslint/no-unused-vars
+   96:31  error  'toast' is already declared in the upper scope on line 140 column 10  @typescript-eslint/no-shadow
+  143:19  error  'props' is already declared in the upper scope on line 140 column 21  @typescript-eslint/no-shadow
+
+/Users/julian/Downloads/project/middleware.ts
+  1:60  error  'currentUser' is defined but never used  @typescript-eslint/no-unused-vars
+  2:10  error  'redirect' is defined but never used     @typescript-eslint/no-unused-vars
+
+/Users/julian/Downloads/project/ui/calendar.tsx
+  44:25  error  'props' is already declared in the upper scope on line 12 column 71  @typescript-eslint/no-shadow
+  45:26  error  'props' is already declared in the upper scope on line 12 column 71  @typescript-eslint/no-shadow
+
+/Users/julian/Downloads/project/ui/carousel.tsx
+  55:41  error  'api' is already declared in the upper scope on line 45 column 25  @typescript-eslint/no-shadow
+
+/Users/julian/Downloads/project/ui/chart.tsx
+  72:10  error  'config' is already declared in the upper scope on line 70 column 27  @typescript-eslint/no-shadow
+
+✖ 33 problems (30 errors, 3 warnings)
+
