@@ -1,8 +1,9 @@
 'use client';
 
-import { SignUpButton } from '@clerk/nextjs';
+import { SignedIn, SignedOut, SignUpButton } from '@clerk/nextjs';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart2, Shield, Users } from 'lucide-react';
+import Link from 'next/link';
 
 import { Button } from '@/ui/button';
 
@@ -33,14 +34,27 @@ export function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              <SignUpButton mode="modal">
+              <SignedIn>
                 <Button
                   size="lg"
+                  asChild
                   className="bg-emerald-600 hover:bg-emerald-700"
                 >
-                  Start Comparing Now <ArrowRight className="ml-2 h-5 w-5" />
+                  <Link href="/dashboard">
+                    Go to Dashboard <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
-              </SignUpButton>
+              </SignedIn>
+              <SignedOut>
+                <SignUpButton mode="modal">
+                  <Button
+                    size="lg"
+                    className="bg-emerald-600 hover:bg-emerald-700"
+                  >
+                    Start Comparing Now <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </SignUpButton>
+              </SignedOut>
             </motion.div>
             <motion.div
               initial={{ opacity: 0 }}

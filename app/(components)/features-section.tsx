@@ -46,7 +46,7 @@ export function FeaturesSection() {
             Everything you need to make informed financial decisions
           </p>
         </motion.div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-4">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -55,9 +55,11 @@ export function FeaturesSection() {
               transition={{ delay: 0.1 + index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full p-6 text-center transition-shadow hover:shadow-lg">
+              <Card className="h-full p-6 text-center transition-shadow hover:shadow-lg md:px-12 xl:px-6">
                 <feature.icon className="mx-auto mb-4 h-12 w-12 text-emerald-600" />
-                <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
+                <div className="mb-2 flex items-center justify-center xl:min-h-14">
+                  <h3 className="text-xl font-semibold">{feature.title}</h3>
+                </div>
                 <p className="text-gray-600">{feature.description}</p>
               </Card>
             </motion.div>

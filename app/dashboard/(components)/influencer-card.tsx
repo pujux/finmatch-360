@@ -1,6 +1,7 @@
 'use client';
 
 import { Star, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
 import { Button } from '@/ui/button';
@@ -10,6 +11,7 @@ import { INFLUENCER_CATEGORIES } from './category-select';
 
 type InfluencerCardProps = {
   influencer: {
+    username: string;
     name: string;
     avatar: string;
     category: keyof typeof INFLUENCER_CATEGORIES;
@@ -49,8 +51,8 @@ export function InfluencerCard({ influencer }: InfluencerCardProps) {
       <p className="mt-4 text-sm text-muted-foreground">
         {influencer.description}
       </p>
-      <Button className="mt-6 bg-emerald-600 hover:bg-emerald-700">
-        View Profile
+      <Button asChild className="mt-6 bg-emerald-600 hover:bg-emerald-700">
+        <Link href={`/profile/${influencer.username}`}>View Profile</Link>
       </Button>
     </Card>
   );

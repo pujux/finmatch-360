@@ -15,6 +15,7 @@ export default function OnboardingPage() {
             financial experts
           </p>
         </div>
+
         <OnboardingForm />
       </Card>
     </main>

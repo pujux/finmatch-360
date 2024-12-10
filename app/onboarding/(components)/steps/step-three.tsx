@@ -128,7 +128,7 @@ export function StepThree({ form }: { form: OnboardingForm }) {
               </FormDescription>
             </div>
             <FormControl>
-              <Input placeholder="Enter amount" type="number" {...field} />
+              <Input placeholder="Enter amount in €" type="number" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

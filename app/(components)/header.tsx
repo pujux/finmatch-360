@@ -24,7 +24,7 @@ export default function Header() {
               <UserButton
                 appearance={{
                   elements: {
-                    userButtonAvatarBox: { width: '40px', height: '40px' },
+                    userButtonAvatarBox: { width: '36px', height: '36px' },
                   },
                 }}
               />
