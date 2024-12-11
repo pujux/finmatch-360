@@ -1,9 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Scale, Shield, Star, TrendingUp } from 'lucide-react';
-
 import { Card } from '@/ui/card';
+import { Scale, Shield, Star, TrendingUp } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const features = [
   {

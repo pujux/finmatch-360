@@ -1,12 +1,11 @@
 'use client';
 
-import { SignUpButton } from '@clerk/nextjs';
-import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
-
 import { cn } from '@/lib/utils';
 import { Button } from '@/ui/button';
 import { Card } from '@/ui/card';
+import { SignUpButton } from '@clerk/nextjs';
+import { Check } from 'lucide-react';
+import { motion } from 'motion/react';
 
 const plans = [
   {

@@ -1,7 +1,5 @@
 'use client';
 
-import { InfoIcon } from 'lucide-react';
-
 import {
   FormControl,
   FormDescription,
@@ -18,10 +16,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/ui/tooltip';
+import { InfoIcon } from 'lucide-react';
+import { UserOnboardingForm, riskToleranceLevels } from '../../utils/form';
 
-import { OnboardingForm } from '../../utils/form';
-
-export function StepThree({ form }: { form: OnboardingForm }) {
+export function StepThree({ form }: { form: UserOnboardingForm }) {
   return (
     <div className="space-y-8">
       <div>
@@ -41,7 +39,7 @@ export function StepThree({ form }: { form: OnboardingForm }) {
                 Risk Tolerance
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger type="button">
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -63,39 +61,22 @@ export function StepThree({ form }: { form: OnboardingForm }) {
                 defaultValue={field.value}
                 className="grid gap-4"
               >
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="conservative" />
-                  </FormControl>
-                  <FormLabel className="font-normal">
-                    Conservative
-                    <p className="text-sm text-muted-foreground">
-                      Prefer stability and lower risk
-                    </p>
-                  </FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="moderate" />
-                  </FormControl>
-                  <FormLabel className="font-normal">
-                    Moderate
-                    <p className="text-sm text-muted-foreground">
-                      Balance between risk and return
-                    </p>
-                  </FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="aggressive" />
-                  </FormControl>
-                  <FormLabel className="font-normal">
-                    Aggressive
-                    <p className="text-sm text-muted-foreground">
-                      Comfortable with higher risk for potential higher returns
-                    </p>
-                  </FormLabel>
-                </FormItem>
+                {riskToleranceLevels.map((level) => (
+                  <FormItem
+                    key={level.id}
+                    className="flex items-center space-x-3 space-y-0"
+                  >
+                    <FormControl>
+                      <RadioGroupItem value={level.id} />
+                    </FormControl>
+                    <FormLabel className="font-normal">
+                      {level.label}
+                      <p className="text-sm text-muted-foreground">
+                        {level.description}
+                      </p>
+                    </FormLabel>
+                  </FormItem>
+                ))}
               </RadioGroup>
             </FormControl>
             <FormMessage />
@@ -110,10 +91,10 @@ export function StepThree({ form }: { form: OnboardingForm }) {
           <FormItem className="flex flex-col gap-4 space-y-0">
             <div>
               <FormLabel className="flex items-center gap-2">
-                Monthly Investment Capacity
+                Monthly Investment Capacity in €
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger type="button">
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -128,7 +109,7 @@ export function StepThree({ form }: { form: OnboardingForm }) {
               </FormDescription>
             </div>
             <FormControl>
-              <Input placeholder="Enter amount in €" type="number" {...field} />
+              <Input type="number" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

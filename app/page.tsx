@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-
 import { ClerkModalController } from './(components)/clerk-modal-controller';
 import { FeaturesSection } from './(components)/features-section';
 import { HeroSection } from './(components)/hero-section';

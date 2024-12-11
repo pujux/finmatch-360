@@ -1,0 +1,26 @@
+services:
+  finmatch360:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env.local
+
+  directus:
+    image: directus/directus:11.3.2
+    ports:
+      - '8055:8055'
+    volumes:
+      - ./directus/database:/directus/database
+      - ./directus/uploads:/directus/uploads
+      - ./directus/extensions:/directus/extensions
+      - ./directus/templates:/directus/templates
+    environment:
+      SECRET: 'finmatch360'
+      ADMIN_EMAIL: 'admin@finmatch360.com'
+      ADMIN_PASSWORD: 'finmatch360'
+      DB_CLIENT: 'sqlite3'
+      DB_FILENAME: '/directus/database/data.db'
+      WEBSOCKETS_ENABLED: 'true'

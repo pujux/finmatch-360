@@ -1,12 +1,10 @@
 'use client';
 
-import { Star, TrendingUp } from 'lucide-react';
-import Link from 'next/link';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
 import { Button } from '@/ui/button';
 import { Card } from '@/ui/card';
-
+import { Star, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 import { INFLUENCER_CATEGORIES } from './category-select';
 
 type InfluencerCardProps = {

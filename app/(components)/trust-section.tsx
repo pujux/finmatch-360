@@ -1,9 +1,8 @@
 'use client';
 
-import { motion } from 'framer-motion';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
 import { Card } from '@/ui/card';
+import { motion } from 'motion/react';
 
 const testimonials = [
   {

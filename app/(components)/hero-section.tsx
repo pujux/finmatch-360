@@ -1,11 +1,10 @@
 'use client';
 
-import { SignedIn, SignedOut, SignUpButton } from '@clerk/nextjs';
-import { motion } from 'framer-motion';
-import { ArrowRight, BarChart2, Shield, Users } from 'lucide-react';
-import Link from 'next/link';
-
 import { Button } from '@/ui/button';
+import { SignedIn, SignedOut, SignUpButton } from '@clerk/nextjs';
+import { ArrowRight, BarChart2, Shield, Users } from 'lucide-react';
+import { motion } from 'motion/react';
+import Link from 'next/link';
 
 export function HeroSection() {
   return (

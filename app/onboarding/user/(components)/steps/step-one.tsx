@@ -1,7 +1,5 @@
 'use client';
 
-import { InfoIcon } from 'lucide-react';
-
 import {
   FormControl,
   FormDescription,
@@ -17,10 +15,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/ui/tooltip';
+import { InfoIcon } from 'lucide-react';
+import { experienceLevels, UserOnboardingForm } from '../../utils/form';
 
-import { OnboardingForm } from '../../utils/form';
-
-export function StepOne({ form }: { form: OnboardingForm }) {
+export function StepOne({ form }: { form: UserOnboardingForm }) {
   return (
     <div className="space-y-8">
       <div>
@@ -40,7 +38,7 @@ export function StepOne({ form }: { form: OnboardingForm }) {
                 Investment Experience Level
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger type="button">
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -63,39 +61,22 @@ export function StepOne({ form }: { form: OnboardingForm }) {
                 defaultValue={field.value}
                 className="grid gap-4"
               >
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="beginner" />
-                  </FormControl>
-                  <FormLabel className="font-normal">
-                    Beginner
-                    <p className="text-sm text-muted-foreground">
-                      New to investing, learning the basics
-                    </p>
-                  </FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="intermediate" />
-                  </FormControl>
-                  <FormLabel className="font-normal">
-                    Intermediate
-                    <p className="text-sm text-muted-foreground">
-                      Some experience with basic investments
-                    </p>
-                  </FormLabel>
-                </FormItem>
-                <FormItem className="flex items-center space-x-3 space-y-0">
-                  <FormControl>
-                    <RadioGroupItem value="advanced" />
-                  </FormControl>
-                  <FormLabel className="font-normal">
-                    Advanced
-                    <p className="text-sm text-muted-foreground">
-                      Experienced investor with diverse portfolio
-                    </p>
-                  </FormLabel>
-                </FormItem>
+                {experienceLevels.map((level) => (
+                  <FormItem
+                    key={level.id}
+                    className="flex items-center space-x-3 space-y-0"
+                  >
+                    <FormControl>
+                      <RadioGroupItem value={level.id} />
+                    </FormControl>
+                    <FormLabel className="font-normal">
+                      {level.label}
+                      <p className="text-sm text-muted-foreground">
+                        {level.description}
+                      </p>
+                    </FormLabel>
+                  </FormItem>
+                ))}
               </RadioGroup>
             </FormControl>
             <FormMessage />

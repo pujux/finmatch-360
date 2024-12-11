@@ -1,37 +1,34 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
-import { Loader2 } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-
-import { updateUserMetadata } from '@/app/actions';
+import { updateClerkMetadata } from '@/app/actions';
 import { Button } from '@/ui/button';
 import { Form } from '@/ui/form';
 import { Progress } from '@/ui/progress';
-
-import { FormData, useOnboardingForm } from '../utils/form';
-
-import { StepFour } from './steps/step-four';
+import { Loader2 } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { CreatorFormData, useCreatorOnboardingForm } from '../utils/form';
 import { StepOne } from './steps/step-one';
 import { StepThree } from './steps/step-three';
 import { StepTwo } from './steps/step-two';
 
-const steps = [StepOne, StepTwo, StepThree, StepFour];
+const steps = [StepOne, StepTwo, StepThree];
 
-export function OnboardingForm() {
+export function CreatorOnboardingForm() {
   const router = useRouter();
 
-  const [formData, setFormData] = useState<FormData>();
+  const [formData, setFormData] = useState<CreatorFormData>();
   const [step, setStep] = useState(1);
   const [progress, setProgress] = useState(0);
   const [loadingUpdate, setLoadingUpdate] = useState(false);
-  const onboardingForm = useOnboardingForm(step);
+  const onboardingForm = useCreatorOnboardingForm(step);
 
   const totalSteps = steps.length;
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: CreatorFormData) => {
     const metadata = { ...formData, ...data };
+    console.log(metadata);
 
     if (step < totalSteps) {
       const newStep = step + 1;
@@ -42,16 +39,20 @@ export function OnboardingForm() {
     } else {
       setProgress(100);
       setLoadingUpdate(true);
-      await updateUserMetadata({
-        experienceLevel: metadata.experienceLevel,
-        investmentGoals: metadata.investmentGoals.join(),
-        riskTolerance: metadata.riskTolerance,
-        monthlyInvestment: metadata.monthlyInvestment,
-        learningStyle: metadata.learningStyle.join(),
-        timeCommitment: metadata.timeCommitment,
-        onboardingCompleted: 'true',
+
+      const { socialMedia, ...meta } = metadata;
+
+      await updateClerkMetadata({
+        type: 'creator',
+        ...meta,
+        categories: metadata.categories.join(),
+        formats: metadata.formats.join(),
+        socialMediaTwitter: socialMedia.twitter,
+        socialMediaYoutube: socialMedia.youtube,
+        socialMediaInstagram: socialMedia.instagram,
+        socialMediaLinkedin: socialMedia.linkedin,
+        onboardingCompleted: Date.now(),
       });
-      setLoadingUpdate(false);
       router.push('/dashboard');
     }
   };

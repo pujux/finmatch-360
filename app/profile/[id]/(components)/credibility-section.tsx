@@ -1,8 +1,7 @@
 'use client';
 
-import { Award, Briefcase, GraduationCap, Trophy } from 'lucide-react';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
+import { Award, Briefcase, GraduationCap, Trophy } from 'lucide-react';
 
 const credentials = [
   {

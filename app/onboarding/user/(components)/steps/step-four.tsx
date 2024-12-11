@@ -1,7 +1,5 @@
 'use client';
 
-import { InfoIcon } from 'lucide-react';
-
 import { Checkbox } from '@/ui/checkbox';
 import {
   FormControl,
@@ -18,10 +16,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/ui/tooltip';
+import { InfoIcon } from 'lucide-react';
+import { learningStyles, UserOnboardingForm } from '../../utils/form';
 
-import { learningStyles, OnboardingForm } from '../../utils/form';
-
-export function StepFour({ form }: { form: OnboardingForm }) {
+export function StepFour({ form }: { form: UserOnboardingForm }) {
   return (
     <div className="space-y-8">
       <div>
@@ -41,7 +39,7 @@ export function StepFour({ form }: { form: OnboardingForm }) {
                 Preferred Learning Styles
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger type="button">
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -62,7 +60,7 @@ export function StepFour({ form }: { form: OnboardingForm }) {
                 render={({ field }) => (
                   <FormItem
                     key={style.id}
-                    className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4"
+                    className="flex flex-row items-center space-x-3 space-y-0 rounded-md border p-4"
                   >
                     <FormControl>
                       <Checkbox
@@ -103,7 +101,7 @@ export function StepFour({ form }: { form: OnboardingForm }) {
                 Weekly Time Commitment (hours)
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger type="button">
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -120,11 +118,7 @@ export function StepFour({ form }: { form: OnboardingForm }) {
               </FormDescription>
             </div>
             <FormControl>
-              <Input
-                type="number"
-                placeholder="Enter hours per week"
-                {...field}
-              />
+              <Input type="number" {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>

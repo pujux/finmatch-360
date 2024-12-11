@@ -1,8 +1,5 @@
-'use client';
-
-import { Building, Clock, Globe2, Users2 } from 'lucide-react';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
+import { Building, Clock, Globe2, Users2 } from 'lucide-react';
 
 export function EngagementMetrics() {
   return (

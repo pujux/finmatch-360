@@ -1,8 +1,5 @@
-'use client';
-
-import { Activity, BarChart, TrendingUp, Users } from 'lucide-react';
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
+import { Activity, BarChart, TrendingUp, Users } from 'lucide-react';
 
 const metrics = [
   {

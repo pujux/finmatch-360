@@ -1,7 +1,5 @@
 'use client';
 
-import { InfoIcon } from 'lucide-react';
-
 import { Checkbox } from '@/ui/checkbox';
 import {
   FormControl,
@@ -17,10 +15,10 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/ui/tooltip';
+import { InfoIcon } from 'lucide-react';
+import { investmentGoals, UserOnboardingForm } from '../../utils/form';
 
-import { investmentGoals, OnboardingForm } from '../../utils/form';
-
-export function StepTwo({ form }: { form: OnboardingForm }) {
+export function StepTwo({ form }: { form: UserOnboardingForm }) {
   return (
     <div className="space-y-8">
       <div>
@@ -40,7 +38,7 @@ export function StepTwo({ form }: { form: OnboardingForm }) {
                 What are your investment goals?
                 <TooltipProvider>
                   <Tooltip>
-                    <TooltipTrigger>
+                    <TooltipTrigger type="button">
                       <InfoIcon className="h-4 w-4 text-muted-foreground" />
                     </TooltipTrigger>
                     <TooltipContent>
@@ -57,7 +55,6 @@ export function StepTwo({ form }: { form: OnboardingForm }) {
                 areas of interest
               </FormDescription>
             </div>
-
             {investmentGoals.map((goal) => (
               <FormField
                 key={goal.id}
@@ -66,7 +63,7 @@ export function StepTwo({ form }: { form: OnboardingForm }) {
                 render={({ field }) => (
                   <FormItem
                     key={goal.id}
-                    className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4"
+                    className="flex flex-row items-center space-x-3 space-y-0 rounded-md border p-4"
                   >
                     <FormControl>
                       <Checkbox

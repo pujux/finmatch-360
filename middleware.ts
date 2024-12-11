@@ -8,9 +8,9 @@ import { NextResponse } from 'next/server';
 const isProtectedRoute = createRouteMatcher([
   '/dashboard(.*)',
   '/profile(.*)',
-  '/onboarding',
+  '/onboarding(.*)',
 ]);
-const isOnboardingRoute = createRouteMatcher(['/onboarding']);
+const isOnboardingRoute = createRouteMatcher(['/onboarding(.*)']);
 
 export default clerkMiddleware(
   async (auth, req) => {
@@ -22,13 +22,17 @@ export default clerkMiddleware(
       return redirectToSignIn();
     }
 
-    if (isOnboardingRoute(req)) {
-      const clerk = await clerkClient();
-      const user = await clerk.users.getUser(userId);
+    const clerk = await clerkClient();
+    const user = await clerk.users.getUser(userId);
 
-      if (user.publicMetadata.onboardingCompleted === 'true') {
-        return NextResponse.redirect(new URL('/dashboard', req.url));
-      }
+    const isOnboarding = isOnboardingRoute(req);
+
+    if (isOnboarding && Number(user.publicMetadata.onboardingCompleted) > 0) {
+      return NextResponse.redirect(new URL('/dashboard', req.url));
+    }
+
+    if (!isOnboarding && !user.publicMetadata.onboardingCompleted) {
+      return NextResponse.redirect(new URL('/onboarding', req.url));
     }
   },
   { signInUrl: '/?clerk-modal=sign-in', signUpUrl: '/?clerk-modal=sign-up' },

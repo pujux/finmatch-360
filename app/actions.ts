@@ -2,7 +2,9 @@
 
 import { auth, clerkClient } from '@clerk/nextjs/server';
 
-export async function updateUserMetadata(metadata: Record<string, string>) {
+export async function updateClerkMetadata(
+  metadata: Record<string, string | number | boolean | null>,
+) {
   const clerk = await clerkClient();
   const { userId } = await auth();
 

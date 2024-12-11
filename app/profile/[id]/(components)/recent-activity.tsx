@@ -1,10 +1,7 @@
-'use client';
-
-import { Calendar, FileText, Presentation, Video } from 'lucide-react';
-
 import { Badge } from '@/ui/badge';
 import { Button } from '@/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/ui/card';
+import { Calendar, FileText, Presentation, Video } from 'lucide-react';
 
 const activities = [
   {

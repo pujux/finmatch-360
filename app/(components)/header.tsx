@@ -1,3 +1,4 @@
+import { Button } from '@/ui/button';
 import {
   SignedIn,
   SignedOut,
@@ -8,9 +9,7 @@ import {
 import { TrendingUp } from 'lucide-react';
 import Link from 'next/link';
 
-import { Button } from '@/ui/button';
-
-export default function Header() {
+export function Header() {
   return (
     <header className="hadow-sm sticky top-0 z-50 border-b bg-muted">
       <nav className="container mx-auto flex items-center justify-between gap-4 p-4 md:px-6">

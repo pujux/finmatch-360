@@ -1,11 +1,8 @@
-'use client';
-
-import { CheckCircle, Instagram, Share2, Twitter, Youtube } from 'lucide-react';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/ui/avatar';
 import { Badge } from '@/ui/badge';
 import { Button } from '@/ui/button';
 import { Card } from '@/ui/card';
+import { CheckCircle, Instagram, Share2, Twitter, Youtube } from 'lucide-react';
 
 export function ProfileHeader() {
   return (

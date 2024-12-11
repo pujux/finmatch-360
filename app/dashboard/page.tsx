@@ -1,5 +1,5 @@
 import { RequestInfluencerDialog } from '@/app/dashboard/(components)/request-influencer-dialog';
-
+import { Suspense } from 'react';
 import { InfluencerList } from './(components)/influencer-list';
 import { SearchFilterBar } from './(components)/search-filter-bar';
 
@@ -11,8 +11,10 @@ export default function Dashboard() {
         <RequestInfluencerDialog />
       </div>
 
-      <SearchFilterBar />
-      <InfluencerList />
+      <Suspense>
+        <SearchFilterBar />
+        <InfluencerList />
+      </Suspense>
     </main>
   );
 }

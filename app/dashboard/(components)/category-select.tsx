@@ -1,4 +1,4 @@
-import { parseAsStringLiteral, useQueryState } from 'nuqs';
+'use client';
 
 import {
   Select,
@@ -7,6 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/ui/select';
+import { parseAsStringLiteral, useQueryState } from 'nuqs';
 
 export const INFLUENCER_CATEGORIES = {
   all: 'All Categories',
